@@ -24,18 +24,18 @@ function sayHello() {
     console.log('Hello!');
 }
 
-sayHello.delay = (ms) => {
-    setTimeout(sayHello, ms);
-}
+sayHello.prototype.delay = (ms) =>{
+    return setTimeout(sayHello, ms);
+};
 
-sayHello.delay(1000); /* Выведет "Hello!" через 1 секунду */
+sayHello.prototype.delay(1000); /* Выведет "Hello!" через 1 секунду */
 
 function sum(a, b) {
     console.log(a + b);
 }
 
-sum.delay = (ms) => {
+sum.prototype.delay = (ms) => {
     return (a, b) => setTimeout(sum, ms, a, b);
 }
 
-sum.delay(1000)(5, 2); /* Выведет 7 через 1 секунду. */
+sum.prototype.delay(1000)(5, 2); /* Выведет 7 через 1 секунду. */
